@@ -2,4 +2,18 @@
 <resources>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
+
+    // This is the highlight pallete Color
+    <color name="primary_green">#31570F</color>
+    <color name="primary_lightgreen">#79BD3D</color>
+    <color name="primary_skin_tone">#FFFBCE</color>
+    <color name="primary_tale">#386C5f</color>
+
+
+    //This is the natural Pallete
+    
+    <color name="grey_green">#83976D</color>
+    <color name="white_smoke_green">#F6FBF0</color>
+
+
 </resources>
