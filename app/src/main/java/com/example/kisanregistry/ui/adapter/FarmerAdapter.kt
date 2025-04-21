@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kisanregistry.R
-import com.example.kisanregistry.data.model.farmer
+import com.example.kisanregistry.data.model.Farmer
 
 class FarmerAdapter(
-    private var farmerList: List<farmer>,
-    private val onDelete: (farmer) -> Unit,
-    private val onEdit: (farmer) -> Unit
+    private var farmerList: List<Farmer>,
+    private val onDelete: (Farmer) -> Unit,
+    private val onEdit: (Farmer) -> Unit
 ) : RecyclerView.Adapter<FarmerAdapter.FarmerViewHolder>() {
 
     inner class FarmerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -42,7 +42,7 @@ class FarmerAdapter(
 
     override fun getItemCount() = farmerList.size
 
-    fun updateData(newList: List<farmer>) {
+    fun updateData(newList: List<Farmer>) {
         farmerList = newList
         notifyDataSetChanged()
     }

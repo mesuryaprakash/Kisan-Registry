@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class SplashScreen : AppCompatActivity() {
 
@@ -27,10 +25,10 @@ class SplashScreen : AppCompatActivity() {
         goToLoginBtn = findViewById(R.id.goToLogin)
 
         goToSignUpBtn.setOnClickListener {
-            startActivity(Intent(this, login::class.java))
+            startActivity(Intent(this, Login::class.java))
         }
         goToLoginBtn.setOnClickListener {
-            startActivity(Intent(this, signUp::class.java))
+            startActivity(Intent(this, SignUp::class.java))
         }
 
     }

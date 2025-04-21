@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kisanregistry.data.FarmerDatabase
-import com.example.kisanregistry.data.model.farmer
+import com.example.kisanregistry.data.AppDatabase
+import com.example.kisanregistry.data.model.Farmer
 import com.example.kisanregistry.ui.adapter.FarmerAdapter
 import com.example.kisanregistry.ui.viewmodel.FarmerViewModel
 import com.example.kisanregistry.ui.viewmodel.FarmerViewModelFactory
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Initialize your database and DAO
-        val farmerDao = FarmerDatabase.getDatabase(this).farmerDao()
+        val farmerDao = AppDatabase.getDatabase(this).farmerDao()
 
         // Initialize ViewModel using Factory
         val viewModelFactory = FarmerViewModelFactory(farmerDao)
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             emptyList(),
             onDelete = { farmer -> farmerViewModel.deleteFarmer(farmer) },
             onEdit = { farmer ->
-                // TODO: open dialog to update farmer
+
                 println("Editing Farmer: ${farmer.name}")
             }
         )
@@ -44,18 +44,18 @@ class MainActivity : AppCompatActivity() {
 
         // Example: Observe Farmers
         farmerViewModel.allFarmers.observe(this) { farmers -> adapter.updateData(farmers)
-            // TODO: Update UI (RecyclerView, TextView, etc.)
+
 //            println("Current Farmers in DB: $farmers")
         }
 
         // Example: Insert a new Farmer (Testing)
-        farmerViewModel.insertFarmer(
-            farmer(
-                id = 0,
-                name = "Ramesh Kumar",
-                village = "Rampur",
-                landSize = 90.5
-            )
-        )
+//        farmerViewModel.insertFarmer(
+//            Farmer(
+//                userId = 0,
+//                name = "Ramesh Kumar",
+//                village = "Rampur",
+//                landSize = 90.5
+//            )
+//        )
     }
 }

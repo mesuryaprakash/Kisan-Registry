@@ -8,10 +8,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
-class login : AppCompatActivity() {
+class Login : AppCompatActivity() {
 
     private lateinit var username: EditText
     private lateinit var password: EditText
@@ -41,13 +39,14 @@ class login : AppCompatActivity() {
             if (user.isEmpty() || pass.isEmpty()) {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
             } else {
-                // TODO: Validate user from Room later
                 Toast.makeText(this, "Logged in (mock)", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
             }
         }
 
         signupLink.setOnClickListener {
-            startActivity(Intent(this, signUp::class.java))
+            startActivity(Intent(this, SignUp::class.java))
         }
     }
 }

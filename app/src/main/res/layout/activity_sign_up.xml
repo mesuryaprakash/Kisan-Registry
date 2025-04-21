@@ -18,14 +18,31 @@
             android:layout_height="wrap_content"
             android:paddingBottom="24dp"/>
 
+
         <EditText
-            android:id="@+id/etNewUsername"
-            android:hint="Username"
+            android:id="@+id/etNewName"
+            android:hint="Name"
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"
             />
+        <EditText
+            android:id="@+id/etNewEmail"
+            android:hint="Email"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            />
+        <EditText
+        android:id="@+id/etNewUsername"
+        android:hint="Username"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        />
 
         <EditText
             android:id="@+id/etNewPassword"
@@ -50,5 +67,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"/>
+        <TextView
+            android:id="@+id/tvLoginLink"
+            android:text="Already have an account? Login"
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 </ScrollView>
