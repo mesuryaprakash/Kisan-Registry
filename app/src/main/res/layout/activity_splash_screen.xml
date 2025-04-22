@@ -1,33 +1,62 @@
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splashbg"
-    android:orientation="vertical">
+    android:background="@drawable/splashbg">
 
+    <ImageView
+        android:id="@+id/ivLogoSplash"
+        android:layout_width="217dp"
+        android:layout_height="187dp"
+        android:src="@drawable/kishan_splash_logo"
+        app:layout_constraintBottom_toTopOf="@+id/tvKisanRegistrySplash"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/goToLogin"
+    <TextView
+        android:id="@+id/tvKisanRegistrySplash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/primary_green"
-        android:paddingHorizontal="40dp"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#2E7D32"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogoSplash"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnSignInSplash"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"/>
+
+    <Button
+        android:id="@+id/btnSignInSplash"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#2E7D32"
         android:paddingVertical="12dp"
         android:text="Sign In"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/btnCreateAccountSplash"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"/>
 
     <Button
-        android:id="@+id/goToSignUp"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnCreateAccountSplash"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/goToLogin"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:backgroundTint="#5131570F"
-        android:paddingHorizontal="40dp"
+        android:backgroundTint="#8BC34A"
         android:paddingVertical="12dp"
         android:text="Create an Account"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"/>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
