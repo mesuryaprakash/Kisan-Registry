@@ -26,9 +26,6 @@ class login : AppCompatActivity() {
 //            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
 //            insets
 //        }
-        val dashboardIntent = Intent(this, HomeDashboard::class.java)
-
-
 
         username = findViewById(R.id.etUsername)
         password = findViewById(R.id.etPassword)
@@ -44,7 +41,10 @@ class login : AppCompatActivity() {
             } else {
                 // TODO: Validate user from Room later
                 Toast.makeText(this, "Logged in (mock)", Toast.LENGTH_SHORT).show()
+                val dashboardIntent = Intent(this, HomeDashboard::class.java)
+                dashboardIntent.putExtra("USERNAME", user)
                 startActivity(dashboardIntent)
+                finish()
 
             }
         }
