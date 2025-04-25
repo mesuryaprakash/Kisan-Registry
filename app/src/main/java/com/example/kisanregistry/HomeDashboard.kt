@@ -1,5 +1,6 @@
 package com.example.kisanregistry
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
@@ -47,14 +48,19 @@ class HomeDashboard : AppCompatActivity() {
             when (it.itemId) {
                 R.id.nav_home -> {
                     Toast.makeText(this, "Home clicked", Toast.LENGTH_SHORT).show()
+
                     true
                 }
                 R.id.nav_dashboard -> {
                     Toast.makeText(this, "Dashboard clicked", Toast.LENGTH_SHORT).show()
+                    val schemesIntent = Intent(this, FarmerSchemes::class.java)
+                    startActivity(schemesIntent)
                     true
                 }
                 R.id.nav_profile -> {
                     Toast.makeText(this, "Profile clicked", Toast.LENGTH_SHORT).show()
+                    val userInent = Intent(this, UserProfile::class.java)
+                    startActivity(userInent)
                     true
                 }
                 else -> false
