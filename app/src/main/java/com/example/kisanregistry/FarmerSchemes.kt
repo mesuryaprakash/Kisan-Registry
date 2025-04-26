@@ -20,7 +20,6 @@ class FarmerSchemes : AppCompatActivity() {
         binding = ActivityFarmerSchemesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
 
 
     }
