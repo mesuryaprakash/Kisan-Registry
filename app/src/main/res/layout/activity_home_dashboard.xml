@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:background="@color/primary_green"
         android:elevation="4dp"
-        android:padding="8dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:titleTextColor="@android:color/white"
         tools:ignore="MissingConstraints">
@@ -49,15 +48,15 @@
                 android:layout_marginStart="10dp" />
 
             <ImageView
-                android:id="@+id/icon_chat"
+                android:id="@+id/icon_log_out"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:src="@drawable/ic_lchat_right"
-                app:tint="@android:color/white"
+                android:layout_marginEnd="30dp"
+                android:src="@drawable/ic_log_out"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:tint="@android:color/white" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
