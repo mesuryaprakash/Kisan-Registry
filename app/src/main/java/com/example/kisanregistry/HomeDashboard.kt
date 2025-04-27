@@ -2,7 +2,9 @@ package com.example.kisanregistry
 
 import android.R.attr.apiKey
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.location.Location
 import android.net.Uri
 import android.os.Build
@@ -13,6 +15,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.bumptech.glide.Glide
@@ -30,8 +33,9 @@ class HomeDashboard : AppCompatActivity() {
 
     private val apiKey = "533392d6becd10adfa744922c0911172"  // Your OpenWeather API key
 
-
+    private lateinit var sharedPreferences: SharedPreferences
     private lateinit var locationFetch: LocationFetch
+
 
     // ActivityResultLauncher to request location permission
     private lateinit var requestLocationPermission: ActivityResultLauncher<String>
@@ -75,6 +79,22 @@ class HomeDashboard : AppCompatActivity() {
         val menuIcon: ImageView = findViewById(R.id.icon_menu)
         menuIcon.setOnClickListener {
             // Open drawer or perform some action
+        }
+
+
+        var logoutBtn : ImageView = findViewById(R.id.icon_log_out)
+
+        sharedPreferences = getSharedPreferences("KisanRegistryPrefs", Context.MODE_PRIVATE)
+
+        // Get the username from the Intent
+        val username = intent.getStringExtra("USERNAME")
+
+        // Set up the logout button
+        logoutBtn = findViewById(R.id.icon_log_out)
+
+        logoutBtn.setOnClickListener {
+            // Show the confirmation dialog
+            showLogoutConfirmationDialog()
         }
 
         if (Build.VERSION.SDK_INT >= 21) {
@@ -160,5 +180,32 @@ class HomeDashboard : AppCompatActivity() {
                     Toast.makeText(this@HomeDashboard, "Failed to load weather data", Toast.LENGTH_SHORT).show()
                 }
             })
+    }
+
+    fun showLogoutConfirmationDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Are you sure you want to log out?")
+            .setCancelable(false)
+            .setPositiveButton("Yes") { dialog, id ->
+                // If the user confirms logout, clear SharedPreferences and navigate to login screen
+                clearLoginState()
+                val loginIntent = Intent(this, login::class.java)
+                startActivity(loginIntent)
+                finish() // Close the HomeDashboard activity
+            }
+            .setNegativeButton("No") { dialog, id ->
+                // If the user cancels logout, dismiss the dialog
+                dialog.dismiss()
+            }
+
+        // Show the dialog
+        builder.create().show()
+    }
+
+    fun clearLoginState() {
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("isLoggedIn", false)
+        editor.remove("username")
+        editor.apply()
     }
 }
