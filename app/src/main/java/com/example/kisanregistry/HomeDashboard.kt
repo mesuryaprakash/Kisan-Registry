@@ -9,6 +9,7 @@ import android.location.Location
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.view.Gravity
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
@@ -18,11 +19,14 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.bumptech.glide.Glide
 import com.example.kisanregistry.network.RetrofitClient
 import com.example.kisanregistry.network.WeatherResponse
 import com.example.kisanregistry.utils.LocationFetch
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,7 +39,8 @@ class HomeDashboard : AppCompatActivity() {
 
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var locationFetch: LocationFetch
-
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navigationView: NavigationView
 
     // ActivityResultLauncher to request location permission
     private lateinit var requestLocationPermission: ActivityResultLauncher<String>
@@ -76,11 +81,56 @@ class HomeDashboard : AppCompatActivity() {
         val toolbarTitle: TextView = findViewById(R.id.toolbar_title)
         toolbarTitle.text = "Hi, $userName"
 
-        val menuIcon: ImageView = findViewById(R.id.icon_menu)
+
+        drawerLayout = findViewById(R.id.drawer_layout)
+        navigationView = findViewById(R.id.navigation_view)
+
+        val menuIcon = findViewById<android.widget.ImageView>(R.id.icon_menu)
         menuIcon.setOnClickListener {
-            // Open drawer or perform some action
+            drawerLayout.openDrawer(GravityCompat.START)
         }
 
+        // Access the header view
+        val headerView = navigationView.getHeaderView(0)
+
+// Get the references to the TextViews by ID
+        val profileNameTextView = headerView.findViewById<TextView>(R.id.profile_name)
+        val profileEmailTextView = headerView.findViewById<TextView>(R.id.profile_email)
+
+// Get data from the Intent (if you passed the data from another activity)
+        val profileName = intent.getStringExtra("NAME") ?: "User"
+        val profileEmail = intent.getStringExtra("EMAIL") ?: "user@example.com"
+
+// Set the values to the TextViews
+        profileNameTextView.text = profileName
+        profileEmailTextView.text = profileEmail
+
+
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_language -> {
+                    // Open Language settings
+                }
+                R.id.nav_track_active_complaints -> {
+                    // Open Track Active Complaints
+                }
+                R.id.nav_view_past_complaints -> {
+                    // Open View Past Complaints
+                }
+                R.id.nav_terms -> {
+                    // Open Terms and Conditions
+                }
+                R.id.nav_push_notification -> {
+                    // Open Push Notifications
+                }
+                R.id.nav_help_support -> {
+                    // Open Help and Support
+                }
+
+            }
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
+        }
 
         var logoutBtn : ImageView = findViewById(R.id.icon_log_out)
 
@@ -152,9 +202,23 @@ class HomeDashboard : AppCompatActivity() {
                     if (response.isSuccessful) {
                         val weatherData = response.body()
                         weatherData?.let {
+                            val kelvinTemp = it.main.temp // Temperature in Kelvin
+                            val celsiusTemp = kelvinTemp - 273.15
+
                             findViewById<TextView>(R.id.weather_status).text = it.weather[0].description
                             findViewById<TextView>(R.id.location_text).text = it.name
-                            findViewById<TextView>(R.id.temprature_text).text = "${it.main.temp}°C"
+                            findViewById<TextView>(R.id.temprature_text).text = "${celsiusTemp.toInt()}°C"
+                            findViewById<TextView>(R.id.humidity_text).text = "${it.main.humidity}%"
+                            findViewById<TextView>(R.id.wind_speed_text).text = "${it.wind.speed} m/s"
+
+                            // Rain data (if available)
+                            val rainText = if (it.rain != null) {
+                                "${it.rain.`1h`} mm"
+                            } else {
+                                "0mm"
+                            }
+                            findViewById<TextView>(R.id.rain_text).text = rainText
+
 
                             val iconUrl = "https://openweathermap.org/img/wn/${it.weather[0].icon}@2x.png"
                             Glide.with(this@HomeDashboard)

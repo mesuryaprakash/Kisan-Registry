@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<androidx.drawerlayout.widget.DrawerLayout android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -167,6 +174,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/humidity_text"
                         android:text="65%"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -181,12 +189,14 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
+
                         android:src="@drawable/ic_rain_chance" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="75%"
+                        android:id="@+id/rain_text"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -199,11 +209,13 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
+
                         android:src="@drawable/ic_wind_speed" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/wind_speed_text"
                         android:text="2 km/h"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -401,3 +413,11 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/drawer_menu"
+        app:headerLayout="@layout/drawer_header"/>
+</androidx.drawerlayout.widget.DrawerLayout>

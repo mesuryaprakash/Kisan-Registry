@@ -5,8 +5,10 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
+
 import android.widget.Toast
+import android.widget.TextView
+
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
@@ -60,9 +62,11 @@ class login : AppCompatActivity() {
                 editor.putString("username", user)
                 editor.apply()
 
-                // Navigate to the HomeDashboard activity
                 val dashboardIntent = Intent(this, HomeDashboard::class.java)
-                dashboardIntent.putExtra("USERNAME", user)
+                // Navigate to the HomeDashboard activity
+                dashboardIntent.putExtra("USERNAME", user.toString()) // Convert user to String if it's not
+                dashboardIntent.putExtra("NAME", user.toString()) // Pass profileName (which should be a string)
+                dashboardIntent.putExtra("EMAIL", user.toString())
                 startActivity(dashboardIntent)
                 finish() // Close the login activity
             }
