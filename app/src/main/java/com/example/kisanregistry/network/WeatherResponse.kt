@@ -23,5 +23,5 @@ data class Wind(
 )
 
 data class Rain(
-    val `1h`: Double?  // Rain volume in the last 1 hour (if available)
+    val `1h`: Int?  // Rain volume in the last 1 hour (if available)
 )
