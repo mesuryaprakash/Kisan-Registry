@@ -53,6 +53,8 @@
 
         <activity android:name=".GridUI.ElecricityActivity"
             android:exported="false"/>
+        <activity android:name=".HelpAndSupportActivity"
+            android:exported="false"/>
 
     </application>
 

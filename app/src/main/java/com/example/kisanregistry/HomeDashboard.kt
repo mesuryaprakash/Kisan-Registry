@@ -134,6 +134,8 @@ class HomeDashboard : AppCompatActivity() {
                     // Open Push Notifications
                 }
                 R.id.nav_help_support -> {
+                    val intent = Intent(this, HelpAndSupportActivity::class.java)
+                    startActivity(intent)
                     // Open Help and Support
                 }
 
