@@ -146,10 +146,10 @@
                         android:src="@drawable/ic_temprature" />
 
                     <TextView
+                        android:id="@+id/temprature_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="28°C"
-                        android:id="@+id/temprature_text"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -303,9 +303,6 @@
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
-
-
-
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -375,10 +372,6 @@
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
-
-
-
-
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

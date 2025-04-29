@@ -8,10 +8,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
-class login : AppCompatActivity() {
+class Login : AppCompatActivity() {
 
     private lateinit var username: EditText
     private lateinit var password: EditText
@@ -50,7 +48,7 @@ class login : AppCompatActivity() {
         }
 
         signupLink.setOnClickListener {
-            startActivity(Intent(this, signUp::class.java))
+            startActivity(Intent(this, SignUp::class.java))
         }
     }
 }

@@ -38,10 +38,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".signUp"
+            android:name=".SignUp"
             android:exported="true" />
         <activity
-            android:name=".login"
+            android:name=".Login"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

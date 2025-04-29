@@ -37,6 +37,8 @@ dependencies {
     implementation("androidx.fragment:fragment-ktx:1.8.4")
     implementation("androidx.appcompat:appcompat")
     implementation("androidx.constraintlayout:constraintlayout")
+    implementation("com.google.android.material:material:1.10.0")
+
 
     // Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:2.8.3")
@@ -55,7 +57,9 @@ dependencies {
     implementation("androidx.room:room-ktx:2.6.1")
     implementation(libs.androidx.activity)
     implementation(libs.androidx.gridlayout)
+    implementation(libs.androidx.junit.ktx)
     testImplementation(libs.junit.junit)
+    androidTestImplementation(libs.junit.junit)
     kapt("androidx.room:room-compiler:2.6.1")
 
     // ViewModel and LiveData

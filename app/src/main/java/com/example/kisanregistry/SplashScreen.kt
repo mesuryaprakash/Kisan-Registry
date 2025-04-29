@@ -18,11 +18,11 @@ class SplashScreen: AppCompatActivity() {
         createAccountButton = findViewById(R.id.btnCreateAccountSplash)
 
         signInButton.setOnClickListener {
-            startActivity(Intent(this, login::class.java))
+            startActivity(Intent(this, Login::class.java))
         }
 
         createAccountButton.setOnClickListener {
-            startActivity(Intent(this, signUp::class.java))
+            startActivity(Intent(this, SignUp::class.java))
         }
     }
 }

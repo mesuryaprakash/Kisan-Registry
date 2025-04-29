@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kisanregistry.data.FarmerDatabase
-import com.example.kisanregistry.data.model.farmer
+import com.example.kisanregistry.data.AppDatabase
+import com.example.kisanregistry.data.model.Farmer
 import com.example.kisanregistry.ui.adapter.FarmerAdapter
 import com.example.kisanregistry.ui.viewmodel.FarmerViewModel
 import com.example.kisanregistry.ui.viewmodel.FarmerViewModelFactory
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Initialize your database and DAO
-        val farmerDao = FarmerDatabase.getDatabase(this).farmerDao()
+        val farmerDao = AppDatabase.getDatabase(this).farmerDao()
 
         // Initialize ViewModel using Factory
         val viewModelFactory = FarmerViewModelFactory(farmerDao)
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         // Example: Insert a new Farmer (Testing)
         farmerViewModel.insertFarmer(
-            farmer(
+            Farmer(
                 id = 0,
                 name = "Ramesh Kumar",
                 village = "Rampur",

@@ -5,23 +5,26 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.kisanregistry.data.dao.FarmerDao
-import com.example.kisanregistry.data.model.farmer
+import com.example.kisanregistry.data.dao.UserDao
+import com.example.kisanregistry.data.model.Farmer
+import com.example.kisanregistry.data.model.User
 
-@Database(entities = [farmer::class], version = 1, exportSchema = false)
-abstract class FarmerDatabase : RoomDatabase() {
+@Database(entities = [User::class, Farmer::class], version = 1, exportSchema = false)
+abstract class AppDatabase : RoomDatabase() {
 
     abstract fun farmerDao(): FarmerDao
+    abstract fun userDao(): UserDao
 
     companion object {
         @Volatile
-        private var INSTANCE: FarmerDatabase? = null
+        private var INSTANCE: AppDatabase? = null
 
-        fun getDatabase(context: Context): FarmerDatabase {
+        fun getDatabase(context: Context): AppDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    FarmerDatabase::class.java,
-                    "farmer_database"
+                    AppDatabase::class.java,
+                    "kisan_registry_database"
                 ).build()
                 INSTANCE = instance
                 instance
