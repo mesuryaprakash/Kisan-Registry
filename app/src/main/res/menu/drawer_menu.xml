@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Language (simple item) -->
+    <item
+        android:id="@+id/nav_language"
+        android:icon="@drawable/ic_language"
+        android:title="Language"/>
+
+    <!-- Complaints (expandable) -->
+    <item
+        android:id="@+id/nav_complaints"
+        android:icon="@drawable/ic_complaints"
+        app:showAsAction="always"
+        android:title="Complaints">
+        <menu>
+            <item
+                android:id="@+id/nav_track_active_complaints"
+                android:title="Track Active Complaints" />
+            <item
+                android:id="@+id/nav_view_past_complaints"
+                android:title="View Past Complaints" />
+        </menu>
+    </item>
+
+    <!-- Normal Items -->
+    <item
+        android:id="@+id/nav_terms"
+        android:icon="@drawable/ic_terms"
+        android:title="Terms and Conditions" />
+
+    <item
+        android:id="@+id/nav_push_notification"
+        android:icon="@drawable/ic_notification"
+        android:title="Push Notification" />
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_help_support"
+            android:icon="@drawable/ic_help"
+            android:title="Help and Support" />
+
+    </group>
+
+</menu>
