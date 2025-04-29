@@ -323,6 +323,7 @@
             android:layout_height="140dp"
             android:layout_margin="8dp"
             app:cardCornerRadius="12dp"
+            android:id="@+id/elecricity_view"
             app:cardElevation="6dp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1">

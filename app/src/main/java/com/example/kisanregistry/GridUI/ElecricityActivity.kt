@@ -1,10 +1,14 @@
 package com.example.kisanregistry.GridUI
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.kisanregistry.HomeDashboard
 import com.example.kisanregistry.R
 
 class ElecricityActivity : AppCompatActivity() {
@@ -12,10 +16,16 @@ class ElecricityActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_elecricity)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        val backbtn: ImageView = findViewById(R.id.icon_menu)
+        backbtn.setOnClickListener {
+            val backIntent = Intent(this, HomeDashboard::class.java)
+            startActivity(backIntent)
         }
     }
 }

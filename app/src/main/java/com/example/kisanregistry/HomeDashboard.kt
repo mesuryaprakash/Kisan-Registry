@@ -11,6 +11,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
 import android.view.WindowManager
+import android.widget.GridView
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -19,9 +20,11 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.cardview.widget.CardView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.bumptech.glide.Glide
+import com.example.kisanregistry.GridUI.ElecricityActivity
 import com.example.kisanregistry.network.RetrofitClient
 import com.example.kisanregistry.network.WeatherResponse
 import com.example.kisanregistry.utils.LocationFetch
@@ -147,6 +150,14 @@ class HomeDashboard : AppCompatActivity() {
             showLogoutConfirmationDialog()
         }
 
+
+
+        val elecricitybtn = findViewById<CardView>(R.id.elecricity_view)
+        val elecricityIntent = Intent(this, ElecricityActivity::class.java)
+        elecricitybtn.setOnClickListener{
+            startActivity(elecricityIntent)
+
+        }
         if (Build.VERSION.SDK_INT >= 21) {
             val window = this.window
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
@@ -162,7 +173,7 @@ class HomeDashboard : AppCompatActivity() {
                     true
                 }
                 R.id.nav_dashboard -> {
-                    Toast.makeText(this, "Dashboard clicked", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Schemes clicked", Toast.LENGTH_SHORT).show()
                     val schemesIntent = Intent(this, FarmerSchemes::class.java)
                     startActivity(schemesIntent)
                     true
@@ -213,9 +224,9 @@ class HomeDashboard : AppCompatActivity() {
 
                             // Rain data (if available)
                             val rainText = if (it.rain != null) {
-                                "${it.rain.`1h`} mm"
+                                "${it.rain.`1h`} %"
                             } else {
-                                "0mm"
+                                "0%"
                             }
                             findViewById<TextView>(R.id.rain_text).text = rainText
 
@@ -253,7 +264,7 @@ class HomeDashboard : AppCompatActivity() {
             .setPositiveButton("Yes") { dialog, id ->
                 // If the user confirms logout, clear SharedPreferences and navigate to login screen
                 clearLoginState()
-                val loginIntent = Intent(this, login::class.java)
+                val loginIntent = Intent(this, Login::class.java)
                 startActivity(loginIntent)
                 finish() // Close the HomeDashboard activity
             }
