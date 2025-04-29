@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 
 class SoilQualityActivity : AppCompatActivity() {
 
@@ -12,11 +13,11 @@ class SoilQualityActivity : AppCompatActivity() {
         setContentView(R.layout.activity_soil_quality)
 
         // Find the action LinearLayouts
-        val locateLabOption = findViewById<LinearLayout>(R.id.locateLabCard)
-        val printCardOption = findViewById<LinearLayout>(R.id.printCard)
-        val testingHistoryOption = findViewById<LinearLayout>(R.id.testingHistory)
-        val fertilizersPesticidesOption = findViewById<LinearLayout>(R.id.fertilizersPesticides)
-        val helpDeskOption = findViewById<LinearLayout>(R.id.helpDesk)
+        val locateLabOption = findViewById<CardView>(R.id.locateLabCard)
+        val printCardOption = findViewById<CardView>(R.id.printCard)
+        val testingHistoryOption = findViewById<CardView>(R.id.testingHistory)
+        val fertilizersPesticidesOption = findViewById<CardView>(R.id.fertilizersPesticides)
+        val helpDeskOption = findViewById<CardView>(R.id.helpDesk)
 
         // Set OnClickListeners for each action
         locateLabOption.setOnClickListener {

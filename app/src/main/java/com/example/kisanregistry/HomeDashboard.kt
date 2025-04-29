@@ -13,6 +13,7 @@ import android.view.Gravity
 import android.view.WindowManager
 import android.widget.GridView
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
@@ -162,8 +163,17 @@ class HomeDashboard : AppCompatActivity() {
         val elecricityIntent = Intent(this, ElecricityActivity::class.java)
         elecricitybtn.setOnClickListener{
             startActivity(elecricityIntent)
-
         }
+
+
+        val soilQualitybtn = findViewById<CardView>(R.id.soilQualityCard)
+        val soilIntent = Intent(this, SoilQualityActivity::class.java)
+
+        soilQualitybtn.setOnClickListener{
+            startActivity(soilIntent)
+        }
+
+
         if (Build.VERSION.SDK_INT >= 21) {
             val window = this.window
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)

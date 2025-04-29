@@ -51,6 +51,9 @@
         <activity android:name=".SoilQualityActivity"
             android:exported="false"/>
 
+        <activity android:name=".GridUI.ElecricityActivity"
+            android:exported="false"/>
+
     </application>
 
 </manifest>
