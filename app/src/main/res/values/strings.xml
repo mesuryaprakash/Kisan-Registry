@@ -1,11 +1,54 @@
 <resources>
-    <string name="app_name">Kisan Registry</string>
-    <!-- Strings used for fragments for navigation -->
+    <string name="app_name">KisanRegistry</string>
+    <string name="dummy_terms_and_conditions">
+        ## Terms and Conditions
+
+        Welcome to KisanRegistry! Please read these Terms and Conditions carefully before using our application.\n\n
+
+        **1. Acceptance of Terms**\n\n
+
+        By accessing or using KisanRegistry, you agree to be bound by these Terms and Conditions and our Privacy Policy. If you do not agree with any part of these terms, you may not use the application.\n\n
+
+        **2. Use of the Application**\n\n
+
+        KisanRegistry is intended to provide information and services related to agriculture and government schemes for farmers. You may use the application for lawful purposes only.\n\n
+
+        **3. User Accounts**\n\n
+
+        If you create an account, you are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account.\n\n
+
+        **4. Intellectual Property**\n\n
+
+        The content and materials available on KisanRegistry, including but not limited to text, graphics, logos, and software, are protected by intellectual property laws. You may not modify, reproduce, distribute, or create derivative works based on this content without our explicit permission.\n\n
+
+        **5. Disclaimer of Warranties**\n\n
+
+        KisanRegistry is provided on an "as is" and "as available" basis without any warranties of any kind, express or implied. We do not warrant that the application will be error-free or continuously available.\n\n
+
+        **6. Limitation of Liability**\n\n
+
+        In no event shall KisanRegistry or its developers be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or in connection with your use of the application.\n\n
+
+        **7. Governing Law**\n\n
+
+        These Terms and Conditions shall be governed by and construed in accordance with the laws of India.\n\n
+
+        **8. Changes to Terms and Conditions**\n\n
+
+        We reserve the right to modify these Terms and Conditions at any time. We will notify you of any significant changes by posting the updated terms within the application. Your continued use of the application after such changes constitutes your acceptance of the new Terms and Conditions.\n\n
+
+        **9. Contact Us**\n\n
+
+        If you have any questions or concerns about these Terms and Conditions, please contact us at support@kisanregistry.com.\n\n
+
+        ---\n\n
+
+        Thank you for using KisanRegistry!
+    </string>
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

@@ -19,6 +19,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.cardview.widget.CardView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.bumptech.glide.Glide
@@ -51,6 +52,7 @@ class HomeDashboard : AppCompatActivity() {
         setContentView(R.layout.activity_home_dashboard)
 
         // Initialize the LocationFetch class
+
         locationFetch = LocationFetch(this)
 
         // Initialize the requestLocationPermission launcher
@@ -106,6 +108,9 @@ class HomeDashboard : AppCompatActivity() {
         profileEmailTextView.text = profileEmail
 
 
+
+
+
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_language -> {
@@ -118,6 +123,8 @@ class HomeDashboard : AppCompatActivity() {
                     // Open View Past Complaints
                 }
                 R.id.nav_terms -> {
+                    val intent = Intent(this, TermsAndConditionsActivity::class.java)
+                    startActivity(intent)
                     // Open Terms and Conditions
                 }
                 R.id.nav_push_notification -> {
@@ -246,6 +253,8 @@ class HomeDashboard : AppCompatActivity() {
             })
     }
 
+
+
     fun showLogoutConfirmationDialog() {
         val builder = AlertDialog.Builder(this)
         builder.setMessage("Are you sure you want to log out?")
@@ -253,7 +262,7 @@ class HomeDashboard : AppCompatActivity() {
             .setPositiveButton("Yes") { dialog, id ->
                 // If the user confirms logout, clear SharedPreferences and navigate to login screen
                 clearLoginState()
-                val loginIntent = Intent(this, login::class.java)
+                val loginIntent = Intent(this, Login::class.java)
                 startActivity(loginIntent)
                 finish() // Close the HomeDashboard activity
             }

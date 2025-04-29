@@ -66,12 +66,18 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.6")
 
+    implementation ("org.jsoup:jsoup:1.17.2") // For web scraping
+    implementation ("androidx.recyclerview:recyclerview:1.3.2")// For RecyclerView
+    // Existing dependencies (Room, Navigation, etc.)
     // Location
     implementation("com.google.android.gms:play-services-location:21.3.0")
 
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
 
     implementation ("com.github.bumptech.glide:glide:4.12.0")
+    //retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
 
 
