@@ -174,6 +174,14 @@ class HomeDashboard : AppCompatActivity() {
         }
 
 
+        val schemsbtn = findViewById<CardView>(R.id.schemes_home)
+        val schemeIntent = Intent(this, FarmerSchemes::class.java)
+
+        schemsbtn.setOnClickListener{
+            startActivity(schemeIntent)
+        }
+
+
         if (Build.VERSION.SDK_INT >= 21) {
             val window = this.window
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
