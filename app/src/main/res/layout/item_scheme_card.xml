@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/scheme_card_bg"
+    android:layout_marginBottom="12dp">
+
+    <TextView
+        android:id="@+id/schemeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scheme Title"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="@color/primary_green" />
+
+    <TextView
+        android:id="@+id/schemeDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description..."
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/schemeCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Category"
+        android:layout_marginTop="6dp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/schemeEligibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eligibility"
+        android:layout_marginTop="2dp" />
+    <Button
+        android:id="@+id/btnDetails"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Details"
+        android:backgroundTint="@color/primary_green"
+        android:textColor="@android:color/white" />
+</LinearLayout>
