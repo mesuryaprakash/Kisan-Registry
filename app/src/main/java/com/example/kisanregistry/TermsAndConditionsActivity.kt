@@ -1,8 +1,11 @@
 package com.example.kisanregistry
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 
 class TermsAndConditionsActivity : AppCompatActivity() {
 
@@ -10,8 +13,14 @@ class TermsAndConditionsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_terms_and_conditions)
 
-        // You can optionally get a reference to the TextView if you need to manipulate it further
-        // val termsTextView: TextView = findViewById(R.id.termsAndConditionsTextView)
-        // You could load the text dynamically here if needed.
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        val backbtn: ImageView = findViewById(R.id.icon_menu)
+        backbtn.setOnClickListener {
+            val backIntent = Intent(this, HomeDashboard::class.java)
+            startActivity(backIntent)
+        }
     }
 }

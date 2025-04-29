@@ -1,13 +1,17 @@
 package com.example.kisanregistry
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
 
 class SoilQualityActivity : AppCompatActivity() {
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_soil_quality)
@@ -47,6 +51,16 @@ class SoilQualityActivity : AppCompatActivity() {
         helpDeskOption.setOnClickListener {
             // Implement logic to open help desk or support
             println("Help Desk clicked")
+        }
+
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        val backbtn: ImageView = findViewById(R.id.icon_menu)
+        backbtn.setOnClickListener {
+            val backIntent = Intent(this, HomeDashboard::class.java)
+            startActivity(backIntent)
         }
     }
 }
