@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5">
@@ -10,124 +12,264 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Help and Support"
-            android:textSize="24sp"
-            android:textColor="#2E7D32"
-            android:textStyle="bold"
-            android:layout_marginBottom="16dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Frequently Asked Questions (FAQs)"
-            android:textSize="18sp"
-            android:textColor="#757575"
-            android:layout_marginBottom="8dp" />
-
-        <androidx.cardview.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back_left"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_marginEnd="16dp"
+                app:tint="#757575" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Help Desk"
+                android:textSize="20sp"
+                android:textColor="#212121"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recommended Topics"
+            android:textSize="16sp"
+            android:textColor="#757575"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Topics that are mostly asked by users"
+            android:textSize="12sp"
+            android:textColor="#9E9E9E"
+            android:layout_marginBottom="16dp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/appGuideCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="1dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_app_guide"
+                    android:layout_marginEnd="16dp"
+                    app:tint="#4CAF50" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="App Guide"
+                    android:textSize="16sp"
+                    android:textColor="#212121" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="#757575" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/faqsCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="1dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/ic_faq"
+                        android:layout_marginEnd="16dp"
+                        app:tint="#03A9F4" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="FAQ's"
+                        android:textSize="16sp"
+                        android:textColor="#212121" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="#757575" />
+                </LinearLayout>
+
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Frequently Asked Questions"
+                    android:textSize="14sp"
+                    android:textColor="#757575"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/faqQuestion1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Q: How do I register on the app?"
                     android:textSize="16sp"
                     android:textColor="#212121"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
                 <TextView
+                    android:id="@+id/faqAnswer1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
                     android:text="A: To register, click on the 'Register' button on the login screen and follow the instructions."
                     android:textSize="14sp"
-                    android:textColor="#616161" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                    android:textColor="#616161"
+                    android:layout_marginBottom="8dp" />
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
                 <TextView
+                    android:id="@+id/faqQuestion2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Q: What if I forget my password?"
                     android:textSize="16sp"
                     android:textColor="#212121"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
                 <TextView
+                    android:id="@+id/faqAnswer2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
                     android:text="A: Click on the 'Forgot Password' link on the login screen and follow the steps to reset your password."
                     android:textSize="14sp"
-                    android:textColor="#616161" />
+                    android:textColor="#616161"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/faqQuestion3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Q: How do I view the available schemes?"
+                    android:textSize="16sp"
+                    android:textColor="#212121"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+                <TextView
+                    android:id="@+id/faqAnswer3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A: Navigate to the 'Schemes' section from the home dashboard to see the list of available schemes."
+                    android:textSize="14sp"
+                    android:textColor="#616161"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/faqQuestion4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Q: Where can I track my active complaints?"
+                    android:textSize="16sp"
+                    android:textColor="#212121"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+                <TextView
+                    android:id="@+id/faqAnswer4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A: You can track your active complaints in the 'Track Active Complaints' section in the navigation drawer."
+                    android:textSize="14sp"
+                    android:textColor="#616161"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/faqQuestion5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Q: How do I update my profile information?"
+                    android:textSize="16sp"
+                    android:textColor="#212121"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+                <TextView
+                    android:id="@+id/faqAnswer5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A: Go to the 'Profile' section (usually accessible from the top of the navigation drawer) to edit your details."
+                    android:textSize="14sp"
+                    android:textColor="#616161"
+                    android:layout_marginBottom="16dp" />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/contactUsCard"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Contact Us"
-            android:textSize="18sp"
-            android:textColor="#757575"
-            android:layout_marginBottom="8dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="For any queries or support, please reach out to us via email:"
-            android:textSize="16sp"
-            android:textColor="#212121"
-            android:layout_marginBottom="8dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="anshu747946@gmail.com"
-            android:textSize="16sp"
-            android:textColor="#03A9F4"
-            android:autoLink="email"
-            android:layout_marginBottom="4dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Chaitanyaharish080@gmail.com"
-            android:textSize="16sp"
-            android:textColor="#03A9F4"
-            android:autoLink="email"
-            android:layout_marginBottom="4dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="thesuryasingh9@gmail.com"
-            android:textSize="16sp"
-            android:textColor="#03A9F4"
-            android:autoLink="email"
-            android:layout_marginBottom="16dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Phone: +91 7479468581"
-            android:textSize="16sp"
-            android:textColor="#212121" />
+            app:cardCornerRadius="8dp"
+            app:cardElevation="1dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_contact"
+                    android:layout_marginEnd="16dp"
+                    app:tint="#FF9800" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Contact us"
+                    android:textSize="16sp"
+                    android:textColor="#212121" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="#757575" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 </ScrollView>
