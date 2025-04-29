@@ -1,6 +1,9 @@
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kisanregistry.R
@@ -14,6 +17,7 @@ class SchemeAdapter(private val schemeList: List<Scheme>) :
         val description: TextView = itemView.findViewById(R.id.schemeDescription)
         val category: TextView = itemView.findViewById(R.id.schemeCategory)
         val eligibility: TextView = itemView.findViewById(R.id.schemeEligibility)
+        val btnDetails: Button = itemView.findViewById(R.id.btnDetails)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SchemeViewHolder {
@@ -28,6 +32,11 @@ class SchemeAdapter(private val schemeList: List<Scheme>) :
         holder.description.text = scheme.description
         holder.category.text = "Category: ${scheme.category}"
         holder.eligibility.text = "Eligibility: ${scheme.eligibility}"
+        holder.btnDetails.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(scheme.link))
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount() = schemeList.size

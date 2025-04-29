@@ -4,5 +4,6 @@ data class Scheme(
     val title: String,
     val description: String,
     val category: String,
-    val eligibility: String
+    val eligibility: String,
+    val link: String
 )

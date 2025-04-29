@@ -1,15 +1,18 @@
 package com.example.kisanregistry
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -47,6 +50,15 @@ class UserProfile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        val backbtn: ImageView = findViewById(R.id.icon_menu)
+        backbtn.setOnClickListener {
+            val backIntent = Intent(this, HomeDashboard::class.java)
+            startActivity(backIntent)
+        }
 
         layoutViewMode = findViewById(R.id.layoutViewMode)
         layoutEditMode = findViewById(R.id.layoutEditMode)
@@ -86,6 +98,7 @@ class UserProfile : AppCompatActivity() {
 
             Toast.makeText(this, "Changes Saved!", Toast.LENGTH_SHORT).show()
         }
+
 
 
     }

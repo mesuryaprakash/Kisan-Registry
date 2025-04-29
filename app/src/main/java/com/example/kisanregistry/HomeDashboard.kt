@@ -195,17 +195,17 @@ class HomeDashboard : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.nav_home -> {
-                    Toast.makeText(this, "Home clicked", Toast.LENGTH_SHORT).show()
+
                     true
                 }
                 R.id.nav_dashboard -> {
-                    Toast.makeText(this, "Schemes clicked", Toast.LENGTH_SHORT).show()
+
                     val schemesIntent = Intent(this, FarmerSchemes::class.java)
                     startActivity(schemesIntent)
                     true
                 }
                 R.id.nav_profile -> {
-                    Toast.makeText(this, "Profile clicked", Toast.LENGTH_SHORT).show()
+                    
                     val userIntent = Intent(this, UserProfile::class.java)
                     startActivity(userIntent)
                     true

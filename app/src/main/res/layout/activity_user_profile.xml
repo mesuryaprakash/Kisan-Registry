@@ -12,11 +12,10 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primary_green"
+        android:background="@color/white_smoke_green"
         android:elevation="4dp"
-        android:padding="8dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:titleTextColor="@android:color/white"
+        app:titleTextColor="@color/primary_green"
         tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,30 +23,30 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp">
 
-<!--            <ImageView-->
-<!--                android:id="@+id/icon_menu"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="8dp"-->
-<!--                android:layout_marginTop="8dp"-->
-<!--                android:src="@drawable/ic_left_menu"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:tint="@android:color/white" />-->
+            <ImageView
+                android:id="@+id/icon_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_back_left"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/primary_green" />
 
             <TextView
                 android:id="@+id/toolbar_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Profile"
-                android:textColor="@android:color/white"
+                android:text="My Profile"
+                android:textColor="@color/primary_green"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/icon_menu"
+                app:layout_constraintTop_toTopOf="@id/icon_menu"
+                app:layout_constraintBottom_toBottomOf="@id/icon_menu"
                 android:layout_marginStart="10dp" />
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.appcompat.widget.Toolbar>
 
 
